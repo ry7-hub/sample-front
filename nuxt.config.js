@@ -59,10 +59,7 @@ module.exports = {
   },
 
   proxy: {
-    '/api/': {
-      target: 'http://172.30.0.2:8081/api/test',
-      headers: { 'X-Forwarded-Host': '172.30.0.10:3000' }
-    }
+    '/api/': { target: '172.30.0.2:8081', pathRewrite: {'^/api/': ''} }
   },
 
   auth: {
