@@ -60,7 +60,7 @@ module.exports = {
 
   proxy: {
     '/api/': {
-      target: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/',
+      target: 'http://172.30.0.2:8081/api/',
       headers: { 'X-Forwarded-Host': '172.30.0.10:3000' }
     }
   },
