@@ -54,7 +54,6 @@ module.exports = {
   axios: {
     baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081',
     proxy: true
-    // baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
   },
 
   proxy: {
