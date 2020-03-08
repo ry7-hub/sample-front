@@ -309,10 +309,10 @@ export default {
     },
     getAttendanceData: function() {
       let month = this.getQueryMonth();
-      axios.get('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
+      axios.get('/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
     },
     getAttendanceDateForDay: function(date) {
-      axios.get('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/find?userId=' + this.user_id + '&date=' + date).then(response =>{
+      axios.get('/api/attendance/find?userId=' + this.user_id + '&date=' + date).then(response =>{
         this.attendance = response.data
         console.log(this.attendance);
         this.dialog = true;
@@ -355,10 +355,10 @@ export default {
         remarks: this.attendance.remarks,
         aproval_kind: aproval_kind
       }
-      axios.post('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/regist', data).then(response => {
+      axios.post('/api/attendance/regist', data).then(response => {
         this.dialog = false;
         let month = this.getQueryMonth();
-        axios.get('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
+        axios.get('/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
       }).catch(error => {
         alert('error');
       })
@@ -370,9 +370,9 @@ export default {
           date: date,
           status: '未申請'
         }
-        axios.post('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/update/status', data).then(response => {
+        axios.post('/api/attendance/update/status', data).then(response => {
           let month = this.getQueryMonth();
-          axios.get('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
+          axios.get('/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
         }).catch(error => {
           alert('error');
         })
@@ -383,11 +383,11 @@ export default {
         user_id: this.user_id,
         month: this.getQueryMonth()
       }
-      axios.post('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/update/batch', data).then(response => {
+      axios.post('/api/attendance/update/batch', data).then(response => {
         let resData = response.data;
         alert(resData.message);
         let month = this.getQueryMonth();
-        axios.get('http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
+        axios.get('/api/attendance/list?userId=' + this.user_id + '&date=' + month).then(response => this.attendance_list = response.data)
       }).catch(error => {
         alert('error');
       })
