@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  node: &app_base
+    image: node:12 # dockerhubにすでに上がっている
+    tty: true
+    working_dir: /var/www
+    volumes:
+      - /home/docker/build_machine_vbox/front/sample-front:/var/www # /home/docker/build_machine_vbox/front/sample-frontをコンテナ内の/var/wwwにマウントする
+    environment:
+      PORT: 3000
+      HOST: 0.0.0.0
+    restart: always # エラーなどでコンテナが落ちた際に自動で再起動してくれる
+
+  workspace:
+    <<: *app_base
+    ports:
+      - "3000:3000" # localhost:3000にポートをマッピングする
+    command: yarn dev # upする際に実行されるコマンド

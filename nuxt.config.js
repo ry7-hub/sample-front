@@ -51,7 +51,8 @@ module.exports = {
     }
   },
   axios: {
-    baseURL: 'http://localhost:8081'
+    // baseURL: 'http://localhost:8081'
+    baseURL: 'http://172.30.0.2:8081'
   },
 
   auth: {
