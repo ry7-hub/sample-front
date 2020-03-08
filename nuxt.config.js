@@ -39,8 +39,7 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/vuetify',
-    ['@nuxtjs/moment', ['ja']],
-    '@nuxtjs/proxy'
+    ['@nuxtjs/moment', ['ja']]
   ],
   vuetify: {
     // Vuetify の設定はここに書く
@@ -53,13 +52,7 @@ module.exports = {
   },
   axios: {
     // baseURL: 'http://localhost:8081'
-    // baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
-    // credentials: true,
-    proxy: true
-  },
-
-  proxy: {
-    '/api/': { target: '172.30.0.2:8081', pathRewrite: {'^/api/': ''} }
+    baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
   },
 
   auth: {
@@ -75,9 +68,9 @@ module.exports = {
           // login: { url: 'authenticate', method: 'post', propertyName: 'token' },
           // user: { url: 'me', method: 'get',propertyName: ''},
           // logout: false
-          login: { url: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/auth/login', method: 'post', propertyName: 'token' },
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'token' },
           logout: false,
-          user: { url: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081/api/auth/user', method: 'get', propertyName: '' }
+          user: { url: '/api/auth/user', method: 'get', propertyName: '' }
         }
       }
     }
