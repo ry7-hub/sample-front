@@ -52,7 +52,7 @@ module.exports = {
   },
   axios: {
     // baseURL: 'http://localhost:8081'
-    baseURL: 'http://172.30.0.2:8081'
+    baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
   },
 
   auth: {
