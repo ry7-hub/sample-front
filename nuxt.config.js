@@ -39,7 +39,8 @@ module.exports = {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/vuetify',
-    ['@nuxtjs/moment', ['ja']]
+    ['@nuxtjs/moment', ['ja']],
+    '@nuxtjs/proxy'
   ],
   vuetify: {
     // Vuetify の設定はここに書く
@@ -52,7 +53,16 @@ module.exports = {
   },
   axios: {
     // baseURL: 'http://localhost:8081'
-    baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
+    // baseURL: 'http://ec2-13-115-246-181.ap-northeast-1.compute.amazonaws.com:8081'
+    credentials: true,
+    proxy: true
+  },
+
+  proxy: {
+    '/api/': {
+      target: 'http://172.30.0.2:8081/api/',
+      headers: { 'X-Forwarded-Host': '172.30.0.10:3000' }
+    }
   },
 
   auth: {
