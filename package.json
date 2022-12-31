@@ -17,15 +17,15 @@
     "@nuxtjs/auth": "^4.5.2",
     "@nuxtjs/axios": "^5.3.3",
     "@nuxtjs/moment": "^1.6.0",
-    "@nuxtjs/vuetify": "^1.11.0",
+    "@nuxtjs/vuetify": "^1.12.3",
     "moment": "^2.24.0",
-    "nuxt": "^2.0.0"
+    "nuxt": "^2.11.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
     "eslint": "^4.15.0",
     "eslint-friendly-formatter": "^3.0.0",
-    "eslint-loader": "^1.7.1",
+    "eslint-loader": "^4.0.2",
     "eslint-plugin-vue": "^4.0.0"
   }
 }
